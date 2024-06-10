@@ -8,7 +8,7 @@ cd backend
 npm install
 npm start
 
-###Frontend
+### Frontend
 cd frontend
 npm install
 ng serve
