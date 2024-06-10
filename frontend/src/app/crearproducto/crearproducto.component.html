@@ -1,0 +1,118 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span>{{ titulo | uppercase }}</span>
+
+          <form
+            class="mt-5"
+            [formGroup]="productoForms"
+            (ngSubmit)="agregaProducto()"
+          >
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="Producto"
+                formControlName="producto"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  productoForms.get('producto')?.touched &&
+                  productoForms.get('producto')?.hasError('required')
+                "
+              >
+                Es obligatorio poner el nombre
+                <strong>del producto</strong>
+              </span>
+            </div>
+
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="Categoria"
+                formControlName="categoria"
+              />
+
+              <span
+                class="text-danger"
+                *ngIf="
+                  productoForms.get('categoria')?.touched &&
+                  productoForms.get('categoria')?.hasError('required')
+                "
+              >
+                Es obligatorio poner el nombre
+                <strong>de la cateria</strong>
+              </span>
+            </div>
+
+            <div class="mb-3">
+              <input
+                type="text"
+                ubicacion
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="Ubicacion"
+                formControlName="ubicacion"
+              />
+
+              <span
+                class="text-danger"
+                *ngIf="
+                  productoForms.get('ubicacion')?.touched &&
+                  productoForms.get('ubicacion')?.hasError('required')
+                "
+              >
+                Es obligatorio poner el nombre
+                <strong>de la ubicacion</strong>
+              </span>
+            </div>
+
+            <div class="mb-3">
+              <input
+                type="number"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="Precio"
+                formControlName="precio"
+              />
+
+              <span
+                class="text-danger"
+                *ngIf="
+                  productoForms.get('precio')?.touched &&
+                  productoForms.get('precio')?.hasError('required')
+                "
+              >
+                Es obligatorio poner el
+                <strong>precio</strong>
+              </span>
+            </div>
+
+            <div class="mb-3">
+              <button
+                class="btn btn-danger float-start"
+                [routerLink]="['/']"
+                routerLinkActive="router-link-active"
+              >
+                Volver
+              </button>
+              <button
+                class="btn btn-success float-end"
+                type="submit"
+                [disabled]="productoForms.invalid"
+              >
+                Nuevo
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
